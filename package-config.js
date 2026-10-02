@@ -54,7 +54,7 @@ const JB_PACKAGES = [
     price: "$100",
     priceLabel: "$100 FULL GALLERY",
     photos: 19,
-    videos: 20,
+    videos: 17,
     tagline: "THE FULL COLLECTION",
     preview: "photos/photo17.JPG",
     paymentUrl: "https://buy.stripe.com/cNidR9egR2xWaBU0hA7kc0g"
