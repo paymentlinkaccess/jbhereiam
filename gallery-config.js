@@ -55,10 +55,6 @@ const ALL_VIDEOS = [
   "video2.mp4",
   "video3.mp4",
 
-  "video5.mp4",
-  "video6.mp4",
-  "video7.mp4",
-
   "video101.mp4",
   "video102.mp4",
   "video103.mp4",
@@ -106,7 +102,7 @@ const ALL_VIDEOS = [
 
    $100
    19 photos
-   ALL 20 videos
+   ALL 17 videos
    ========================================================= */
 
 
@@ -207,7 +203,7 @@ const JB_GALLERIES = {
 
     photoCount: 19,
 
-    videoCount: 20
+    videoCount: 17
 
   }
 
