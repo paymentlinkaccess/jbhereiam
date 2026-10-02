@@ -1,318 +1,327 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JB | Gallery</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#050505">
+
+  <title>JB | Private Gallery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header class="site-header">
-<nav class="navbar">
-<a class="brand" href="index.html">
+
+
+<body class="gallery-page">
+
+
+  <!-- ==========================================
+       TOP NAVIGATION
+  =========================================== -->
+
+  <header class="gallery-nav">
+
+    <a class="gallery-brand" href="index.html">
       JB<span>.</span>
-</a>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="#recently-added">Recently Added</a>
-<a href="#photos">Photos</a>
-<a href="#videos">Videos</a>
-</div>
-</nav>
-</header>
-<main>
-<!-- ===============================
+    </a>
+
+    <nav>
+      <a href="#recent">Recently Added</a>
+      <a href="#photos">Photos</a>
+      <a href="#videos">Videos</a>
+    </nav>
+
+  </header>
+
+
+
+  <!-- ==========================================
        HERO
-  ================================ -->
-<section class="gallery-hero-simple">
-<div class="gallery-hero-overlay"></div>
-<img alt="JB" src="jb-main.png"/>
-<div class="gallery-hero-text">
-<h1>JB</h1>
-</div>
-</section>
-<!-- ===============================
+  =========================================== -->
+
+  <section class="gallery-package-hero">
+
+    <img
+      src="jb-main.png"
+      alt="JB Private Collections"
+      class="gallery-logo-image"
+    >
+
+    <div class="gallery-package-overlay">
+
+      <div class="gallery-eyebrow">
+        PRIVATE COLLECTION
+      </div>
+
+      <h1 id="packageTitle">
+        JB PRIVATE GALLERY
+      </h1>
+
+      <p id="packageDetails">
+        Exclusive Photos & Videos
+      </p>
+
+      <div
+        id="packageBadge"
+        class="gallery-package-badge"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==========================================
        RECENTLY ADDED
-  ================================ -->
-<section class="content-section" id="recently-added">
-<div class="section-header">
-<p class="section-label">LATEST</p>
-<h2>Recently Added</h2>
-</div>
-<div class="recent-grid">
-<a class="gallery-card" href="#photo17">
-<img alt="Recently added photo" loading="lazy" src="photos/photo17.JPG"/>
-</a>
-<a class="gallery-card" href="#photo18">
-<img alt="Recently added photo" loading="lazy" src="photos/photo18.JPG"/>
-</a>
-<a class="gallery-card" href="#photo19">
-<img alt="Recently added photo" loading="lazy" src="photos/photo19.JPG"/>
-</a>
+  =========================================== -->
+
+  <section
+    id="recent"
+    class="gallery-section"
+  >
+
+    <div class="gallery-section-heading">
+
+      <span>
+        NEW
+      </span>
+
+      <h2>
+        RECENTLY ADDED
+      </h2>
+
+    </div>
+
+
+    <div
+      id="recentGrid"
+      class="recent-grid"
+    ></div>
+
+  </section>
 
 
 
-</div>
-</section>
-<!-- ===============================
+  <!-- ==========================================
        PHOTOS
-  ================================ -->
-<section class="content-section" id="photos">
-<div class="section-header">
-<p class="section-label">PHOTOS</p>
-<h2>Photos</h2>
-</div>
-<div class="masonry-grid">
-<a class="gallery-card" href="#photo1">
-<img alt="Photo 1" loading="lazy" src="photos/photo1.JPG"/>
-</a>
-<a class="gallery-card" href="#photo2">
-<img alt="Photo 2" loading="lazy" src="photos/photo2.JPG"/>
-</a>
-<a class="gallery-card" href="#photo3">
-<img alt="Photo 3" loading="lazy" src="photos/photo3.JPG"/>
-</a>
-<a class="gallery-card" href="#photo4">
-<img alt="Photo 4" loading="lazy" src="photos/photo4.JPG"/>
-</a>
-<a class="gallery-card" href="#photo5">
-<img alt="Photo 5" loading="lazy" src="photos/photo5.JPG"/>
-</a>
-<a class="gallery-card" href="#photo6">
-<img alt="Photo 6" loading="lazy" src="photos/photo6.JPG"/>
-</a>
-<a class="gallery-card" href="#photo7">
-<img alt="Photo 7" loading="lazy" src="photos/photo7.JPG"/>
-</a>
-<a class="gallery-card" href="#photo8">
-<img alt="Photo 8" loading="lazy" src="photos/photo8.JPG"/>
-</a>
-<a class="gallery-card" href="#photo9">
-<img alt="Photo 9" loading="lazy" src="photos/photo9.JPG"/>
-</a>
-<a class="gallery-card" href="#photo10">
-<img alt="Photo 10" loading="lazy" src="photos/photo10.JPG"/>
-</a>
-<a class="gallery-card" href="#photo11">
-<img alt="Photo 11" loading="lazy" src="photos/photo11.JPG"/>
-</a>
-<a class="gallery-card" href="#photo12">
-<img alt="Photo 12" loading="lazy" src="photos/photo12.JPG"/>
-</a>
-<a class="gallery-card" href="#photo13">
-<img alt="Photo 13" loading="lazy" src="photos/photo13.JPG"/>
-</a>
-<a class="gallery-card" href="#photo14">
-<img alt="Photo 14" loading="lazy" src="photos/photo14.JPG"/>
-</a>
-<a class="gallery-card" href="#photo15">
-<img alt="Photo 15" loading="lazy" src="photos/photo15.JPG"/>
-</a>
-<a class="gallery-card" href="#photo16">
-<img alt="Photo 16" loading="lazy" src="photos/photo16.JPG"/>
-</a>
-<a class="gallery-card" href="#photo17">
-<img alt="Photo 17" loading="lazy" src="photos/photo17.JPG"/>
-</a>
-<a class="gallery-card" href="#photo18">
-<img alt="Photo 18" loading="lazy" src="photos/photo18.JPG"/>
-</a>
-<a class="gallery-card" href="#photo19">
-<img alt="Photo 19" loading="lazy" src="photos/photo19.JPG"/>
-</a>
-</div>
-</section>
-<!-- ===============================
+  =========================================== -->
+
+  <section
+    id="photos"
+    class="gallery-section"
+  >
+
+    <div class="gallery-section-heading">
+
+      <span>
+        JB
+      </span>
+
+      <h2>
+        PHOTOS
+      </h2>
+
+    </div>
+
+
+    <div
+      id="photoGallery"
+      class="photo-masonry"
+    ></div>
+
+  </section>
+
+
+
+  <!-- ==========================================
        VIDEOS
-  ================================ -->
-<section class="content-section" id="videos">
-<div class="section-header">
-<p class="section-label">VIDEOS</p>
-<h2>Videos</h2>
-</div>
-<div class="video-gallery">
-<!-- VIDEO 1 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo1.JPG" preload="metadata">
-<source src="videos/video1.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 2 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo2.JPG" preload="metadata">
-<source src="videos/video2.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 3 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo3.JPG" preload="metadata">
-<source src="videos/video3.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 4 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo4.JPG" preload="metadata">
-<source src="videos/video4.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 5 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo5.JPG" preload="metadata">
-<source src="videos/video5.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 6 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo6.JPG" preload="metadata">
-<source src="videos/video6.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 7 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo7.JPG" preload="metadata">
-<source src="videos/video7.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 8 -->
+  =========================================== -->
 
-<!-- VIDEO 9 -->
-<div class="video-card">
-<video controls="" playsinline="" poster="photos/photo9.JPG" preload="metadata">
-<source src="videos/video9.mp4" type="video/mp4"/>
-</video>
-</div>
-<!-- VIDEO 10 -->
+  <section
+    id="videos"
+    class="gallery-section"
+  >
 
-<!-- VIDEO 11 -->
+    <div class="gallery-section-heading">
 
-<!-- VIDEO 12 -->
+      <span>
+        WATCH
+      </span>
 
-<!-- VIDEO 13 -->
+      <h2>
+        VIDEOS
+      </h2>
 
-<!-- VIDEO 14 -->
+    </div>
 
-<!-- VIDEO 15 -->
 
-<!-- VIDEO 16 -->
+    <div
+      id="videoGallery"
+      class="video-gallery"
+    ></div>
 
-</div>
-</section>
-<!-- ==================================
-       FULL SCREEN PHOTO LIGHTBOXES
-  =================================== -->
-<div class="lightbox" id="photo1">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 1" src="photos/photo1.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo2">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 2" src="photos/photo2.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo3">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 3" src="photos/photo3.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo4">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 4" src="photos/photo4.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo5">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 5" src="photos/photo5.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo6">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 6" src="photos/photo6.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo7">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 7" src="photos/photo7.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo8">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 8" src="photos/photo8.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo9">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 9" src="photos/photo9.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo10">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 10" src="photos/photo10.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo11">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 11" src="photos/photo11.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo12">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 12" src="photos/photo12.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo13">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 13" src="photos/photo13.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo14">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 14" src="photos/photo14.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo15">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 15" src="photos/photo15.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo16">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 16" src="photos/photo16.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo17">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 17" src="photos/photo17.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo18">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 18" src="photos/photo18.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<div class="lightbox" id="photo19">
-<a class="lightbox-bg" href="#photos"></a>
-<img alt="Photo 19" src="photos/photo19.JPG"/>
-<a class="lightbox-close" href="#photos">×</a>
-</div>
-<!-- ===============================
+  </section>
+
+
+
+  <!-- ==========================================
+       PHOTO LIGHTBOX
+  =========================================== -->
+
+  <div
+    id="photoLightbox"
+    class="media-lightbox"
+    aria-hidden="true"
+  >
+
+    <button
+      id="closePhoto"
+      class="lightbox-close"
+      type="button"
+      aria-label="Close photo"
+    >
+      ×
+    </button>
+
+
+    <button
+      id="previousPhoto"
+      class="lightbox-arrow lightbox-previous"
+      type="button"
+      aria-label="Previous photo"
+    >
+      ‹
+    </button>
+
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Gallery photo"
+    >
+
+
+    <button
+      id="nextPhoto"
+      class="lightbox-arrow lightbox-next"
+      type="button"
+      aria-label="Next photo"
+    >
+      ›
+    </button>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       VIDEO LIGHTBOX
+  =========================================== -->
+
+  <div
+    id="videoLightbox"
+    class="media-lightbox"
+    aria-hidden="true"
+  >
+
+    <button
+      id="closeVideo"
+      class="lightbox-close"
+      type="button"
+      aria-label="Close video"
+    >
+      ×
+    </button>
+
+
+    <video
+      id="lightboxVideo"
+      controls
+      playsinline
+      preload="metadata"
+    ></video>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       INVALID PACKAGE
+  =========================================== -->
+
+  <div
+    id="invalidPackage"
+    class="invalid-package"
+    hidden
+  >
+
+    <div>
+
+      <h2>
+        GALLERY NOT FOUND
+      </h2>
+
+      <p>
+        This gallery link is not valid.
+      </p>
+
+      <a href="index.html">
+        VIEW PACKAGES
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================================
        FOOTER
-  ================================ -->
-<footer class="footer">
-<a class="footer-logo" href="index.html">
-      JB<span>.</span>
-</a>
-<div class="footer-links">
-<a href="#recently-added">Recently Added</a>
-<a href="#photos">Photos</a>
-<a href="#videos">Videos</a>
-</div>
-</footer>
-</main>
-</body>
-</html>
+  =========================================== -->
 
+  <footer class="gallery-footer">
+
+    <div class="gallery-footer-logo">
+      JB
+    </div>
+
+    <p>
+      PRIVATE COLLECTIONS
+    </p>
+
+  </footer>
+
+
+
+  <!-- PACKAGE INFORMATION -->
+
+  <script src="gallery-config.js"></script>
+
+
+  <!-- GALLERY ENGINE -->
+
+  <script src="gallery.js"></script>
+
+
+</body>
+
+</html>
