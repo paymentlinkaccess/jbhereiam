@@ -49,3 +49,30 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;ba
 .store-footer{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:14px 8px 24px;border-top:1px solid rgba(255,89,0,.35);color:#b49c8d;text-align:center;font-family:"Space Mono",monospace;font-size:.38rem;letter-spacing:.05em;background:radial-gradient(ellipse at bottom,rgba(255,69,0,.13),transparent 60%)}.store-footer b{display:none}.store-footer span:before{display:block;margin-bottom:5px;color:#ff9a30;font-size:1rem}.store-footer span:nth-of-type(1):before{content:"🔒"}.store-footer span:nth-of-type(2):before{content:"◈"}.store-footer span:nth-of-type(3):before{content:"▣"}
 @media(max-width:430px){.package-card{grid-template-columns:94px minmax(0,1fr) 103px;min-height:116px}.package-preview,.package-preview img{min-height:116px}.package-copy{padding-left:8px}.package-progression{white-space:normal}.package-buy{padding-left:3px;padding-right:3px}}
 @media(max-width:350px){.package-list{padding-left:5px;padding-right:5px}.package-card{grid-template-columns:78px minmax(0,1fr) 92px}.button-note{display:none}.package-tagline{letter-spacing:.07em}}
+
+
+/* ===== COMPACT CINEMATIC PACKAGE CARDS v2 ===== */
+.package-card{min-height:118px;max-height:138px;grid-template-columns:104px minmax(0,1fr) 116px;margin-bottom:9px}
+.package-preview,.package-preview img{min-height:118px;height:100%;max-height:138px}
+.package-copy{padding:8px 8px 8px 11px;justify-content:center}
+.package-copy h2{font-size:clamp(1.05rem,4.7vw,1.42rem);text-shadow:0 0 8px rgba(255,115,0,.35),0 0 22px rgba(255,55,0,.16)}
+.package-count{margin-top:5px}
+.package-tagline{margin-top:5px}
+.package-progression{margin-top:5px;padding:2px 5px;font-size:clamp(.29rem,1.18vw,.36rem);letter-spacing:.045em}
+.package-buy{padding:5px 4px;background:radial-gradient(circle at center,rgba(255,76,0,.09),transparent 67%)}
+.package-price{text-shadow:0 2px #6b250b,0 0 8px #ff6500,0 0 22px rgba(255,62,0,.35)}
+.access-button{margin-top:7px;box-shadow:0 0 7px #ff8a00,0 0 22px rgba(255,57,0,.72),inset 0 1px rgba(255,255,255,.3)}
+.lock-icon span{box-shadow:0 0 9px #ff5b00,0 0 30px rgba(255,69,0,.72)}
+.package-card:after{content:"";position:absolute;left:104px;right:116px;top:0;height:1px;background:linear-gradient(90deg,#ff6b00,rgba(255,183,63,.9),transparent);box-shadow:0 0 9px #ff4b00;pointer-events:none}
+.package-card-full:after{content:"♛";left:auto;right:6px;top:4px;width:auto;height:auto;background:none;box-shadow:none}
+@media(max-width:430px){
+ .package-card{grid-template-columns:88px minmax(0,1fr) 100px;min-height:110px;max-height:126px}
+ .package-preview,.package-preview img{min-height:110px;max-height:126px}
+ .package-card:after{left:88px;right:100px}
+ .package-copy{padding-left:7px;padding-right:4px}
+ .package-progression{font-size:.3rem;padding:2px 4px}
+}
+@media(max-width:350px){
+ .package-card{grid-template-columns:72px minmax(0,1fr) 88px}
+ .package-card:after{left:72px;right:88px}
+}
