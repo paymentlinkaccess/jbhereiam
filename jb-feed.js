@@ -1,5 +1,5 @@
-import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-3';
-const $=id=>document.getElementById(id),admin=location.pathname.endsWith('jb-admin.html');
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-4';
+const $=id=>document.getElementById(id),admin=/\/(jb-admin|jb-studio)\.html$/.test(location.pathname);
 const ready=Boolean(C.supabaseUrl&&C.supabasePublishableKey),client=ready?createClient(C.supabaseUrl,C.supabasePublishableKey):null;
 if(!admin&&C.stripeSubscriptionUrl){$('subscribe').href=C.stripeSubscriptionUrl;$('subscribe').hidden=false}
 if(!ready){$('loginMessage').textContent='JB member system is awaiting setup.';const btn=$('login').querySelector('button');if(btn)btn.disabled=true;}
@@ -11,7 +11,7 @@ if(admin){
     const email=$('email').value.trim().toLowerCase();
     if(email!=='blakeallen1232@gmail.com'){$('loginMessage').textContent='Use the authorized JB administrator email.';return}
     const button=form.querySelector('button');button.disabled=true;
-    const redirectTo=new URL('./jb-admin.html',location.href).href;
+    const redirectTo=new URL('./jb-studio.html',location.href).href;
     const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:false}});
     button.disabled=false;
     $('loginMessage').textContent=error?error.message:'Check your email for the JB administrator sign-in link. Open it in this browser.';
