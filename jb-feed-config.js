@@ -1,9 +1,8 @@
-// JB Daily Feed configuration. Use a DIFFERENT project from Private Gallery.
-// Replace these placeholders only after creating JB's separate Supabase project.
+// JB Daily Feed: separate member database from Private Gallery.
 export const JB_FEED_CONFIG = {
   supabaseUrl: '',
   supabasePublishableKey: '',
-  stripeSubscriptionUrl: '', // Stripe recurring $12.99/month payment link
+  stripeSubscriptionUrl: 'https://buy.stripe.com/00w28r1u58Wk5hAd4m7kc0p',
   tablePosts: 'jb_feed_posts',
   tableMemberships: 'jb_feed_memberships',
   storageBucket: 'jb-feed-media',
