@@ -1,4 +1,4 @@
-import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js';
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-2';
 const $=id=>document.getElementById(id),admin=location.pathname.endsWith('jb-admin.html');
 const ready=Boolean(C.supabaseUrl&&C.supabasePublishableKey),client=ready?createClient(C.supabaseUrl,C.supabasePublishableKey):null;
 if(!admin&&C.stripeSubscriptionUrl){$('subscribe').href=C.stripeSubscriptionUrl;$('subscribe').hidden=false}
