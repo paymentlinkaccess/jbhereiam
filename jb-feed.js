@@ -1,4 +1,4 @@
-import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-4';
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-5';
 const $=id=>document.getElementById(id),admin=/\/(jb-admin|jb-studio)\.html$/.test(location.pathname);
 const ready=Boolean(C.supabaseUrl&&C.supabasePublishableKey),client=ready?createClient(C.supabaseUrl,C.supabasePublishableKey):null;
 if(!admin&&C.stripeSubscriptionUrl){$('subscribe').href=C.stripeSubscriptionUrl;$('subscribe').hidden=false}
@@ -11,16 +11,21 @@ if(admin){
     const email=$('email').value.trim().toLowerCase();
     if(email!=='blakeallen1232@gmail.com'){$('loginMessage').textContent='Use the authorized JB administrator email.';return}
     const button=form.querySelector('button');button.disabled=true;
-    const redirectTo=new URL('./jb-studio.html',location.href).href;
+    const redirectTo=new URL('./jb-studio.html?jb_login=1',location.href).href;
     const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:false}});
     button.disabled=false;
     $('loginMessage').textContent=error?error.message:'Check your email for the JB administrator sign-in link. Open it in this browser.';
   });
   const url=new URL(location.href);
+  const hash=new URLSearchParams(url.hash.slice(1));
+  const authError=url.searchParams.get('error_description')||hash.get('error_description');
+  if(authError)$('loginMessage').textContent='Sign-in link error: '+authError;
   const code=url.searchParams.get('code');
   if(code){client.auth.exchangeCodeForSession(code).then(({error})=>{if(error)$('loginMessage').textContent=error.message;else history.replaceState(null,'',location.pathname)});}
   const tokenHash=url.searchParams.get('token_hash');
   if(tokenHash){client.auth.verifyOtp({token_hash:tokenHash,type:'magiclink'}).then(({error})=>{if(error)$('loginMessage').textContent=error.message;else history.replaceState(null,'',location.pathname)});}
+  if(hash.has('access_token')&&hash.has('refresh_token')){client.auth.setSession({access_token:hash.get('access_token'),refresh_token:hash.get('refresh_token')}).then(({error})=>{if(error)$('loginMessage').textContent='Sign-in verification failed: '+error.message;else history.replaceState(null,'',location.pathname)});}
+  if(url.searchParams.get('jb_login')==='1'&&!code&&!tokenHash&&!hash.has('access_token')&&!authError){$('loginMessage').textContent='The email opened JB, but did not contain a verification token. Check Supabase Magic Link email template: its link must use {{ .ConfirmationURL }}, not {{ .RedirectTo }} or {{ .SiteURL }}.';}
 } else {
 $('signIn').addEventListener('submit',async e=>{e.preventDefault();const button=e.submitter;button.disabled=true;const {error}=await client.auth.signInWithPassword({email:$('email').value.trim().toLowerCase(),password:$('password').value});button.disabled=false;$('loginMessage').textContent=error?error.message:'Signed in.'});
 $('signUp').onclick=async()=>{const email=$('email').value.trim().toLowerCase(),password=$('password').value;if(!email||password.length<8){$('loginMessage').textContent='Enter an email and a password of at least 8 characters.';return}const {data,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});$('loginMessage').textContent=error?error.message:data.session?'Signed in.':'Check your email to verify your account.'};
