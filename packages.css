@@ -88,3 +88,41 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;ba
 
 /* JB DAILY FEED SUBSCRIPTION */
 .daily-offer{margin:12px;padding:27px 18px 23px;text-align:center;border:1px solid #ff7b20;background:radial-gradient(ellipse at 50% 0%,#4d1a08 0%,#160905 55%,#090706 100%);box-shadow:0 0 20px #ff4d0038,inset 0 0 40px #ff4d001a;position:relative;overflow:hidden}.daily-offer__tag{font:700 .6rem 'Space Mono',monospace;letter-spacing:.18em;color:#ffc071}.daily-offer h2{font:clamp(2.5rem,10vw,4.4rem)/1 Anton,sans-serif;margin:13px 0 9px;letter-spacing:.02em}.daily-offer h2 em{font-style:normal;color:#ff6500;text-shadow:0 0 23px #ff4d0080}.daily-offer p{font:600 .7rem/1.7 'Space Mono',monospace;letter-spacing:.07em;color:#e7cdbd;max-width:410px;margin:0 auto}.daily-offer__price{font:2.9rem Anton,sans-serif;color:#ffe0a7;margin:17px 0 12px}.daily-offer__price span{font:700 .72rem 'Space Mono',monospace;color:#ff9d65}.daily-offer__button{display:block;padding:15px 8px;background:linear-gradient(105deg,#c52908,#ff5b0b,#e63b06);color:white;text-decoration:none;font:700 clamp(.65rem,2.5vw,.85rem) 'Space Mono',monospace;letter-spacing:.05em;border:1px solid #ffc071;box-shadow:0 0 19px #ff4d0080}.daily-offer__secondary{display:block;color:#ffb88a;text-decoration:none;margin:15px auto 12px;font:700 .62rem 'Space Mono',monospace}.daily-offer small{display:block;color:#a88d7f;font:.52rem/1.5 'Space Mono',monospace;letter-spacing:.05em}
+
+/* JB EXPOSED — REDACTED CRIMSON REBRAND */
+:root{--orange:#ff1744;--hot:#ff003c;--red:#e00032;--gold:#ff4262;--cream:#fff0f2;--panel:#17030a}
+body{background:radial-gradient(ellipse at 50% 5%,#650019 0%,#190008 38%,#050205 80%)}
+body:before{opacity:.25;background:repeating-linear-gradient(0deg,transparent 0 42px,rgba(255,25,67,.14) 43px 44px),radial-gradient(circle at 80% 20%,rgba(255,0,60,.35),transparent 45%);animation:none}
+.storefront{background:linear-gradient(90deg,rgba(255,0,51,.12),transparent 10%,transparent 90%,rgba(255,0,51,.12)),#080307;box-shadow:0 0 80px rgba(255,0,55,.25)}
+.hero{aspect-ratio:auto;min-height:370px;background:#140008;border-bottom:2px solid #ff1646}
+.hero img{position:absolute;inset:0;filter:grayscale(1) brightness(.3) contrast(1.3);opacity:.55}
+.hero:after{background:linear-gradient(180deg,rgba(20,0,7,.45),rgba(22,0,9,.55) 55%,#080307)}
+.exposed-masthead{position:relative;z-index:2;min-height:330px;padding:45px 16px 95px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.exposed-warning{padding:7px 13px;border:1px solid #ff365c;color:#ff708b;background:#1c000b;font:700 .64rem 'Space Mono',monospace;letter-spacing:.2em}
+.exposed-masthead h1{margin:18px 0 12px;font:clamp(4.2rem,17vw,7.6rem)/.85 Anton,sans-serif;letter-spacing:-.035em;color:#fff;text-shadow:0 5px 0 #430013,0 0 38px rgba(255,0,68,.5)}
+.exposed-masthead h1 strong{display:block;color:#ff1744;font-weight:400;letter-spacing:.015em}
+.exposed-stamp{display:inline-block;padding:9px 14px;transform:rotate(-3deg);background:#ff1744;color:#fff;font:700 clamp(.52rem,2.5vw,.76rem) 'Space Mono',monospace;letter-spacing:.12em;box-shadow:7px 7px 0 #000}
+.hero-cta{bottom:7%;border:1px solid #ff4265;background:#c40034;box-shadow:0 0 22px #ff003c80;font-weight:700}
+.hero-cta span,.gallery-update__details span{color:#ff8ba4}
+.mini-nav{background:#1a030c;border-color:#a7002b}.mini-nav i{background:#a7002b}
+.gallery-update{background:linear-gradient(110deg,#17030b,#400018,#17030b);border-color:#c50036}.gallery-update__live,.gallery-update__dot{color:#ff7b98}.gallery-update__dot{background:#ff1744;box-shadow:0 0 12px #ff1744}
+.package-heading{background:radial-gradient(ellipse at center,rgba(255,0,64,.22),transparent 70%);border-color:#b40031}
+.package-heading h1{font-size:clamp(2rem,9vw,3.25rem)}.package-heading h1:before,.package-heading h1:after{content:none}
+.package-heading h1,.package-copy h2,.package-price{color:#fff;text-shadow:0 0 15px rgba(255,0,65,.4)}
+.package-list{background:radial-gradient(circle at 0 40%,rgba(255,0,60,.14),transparent 40%)}
+.package-card{border-color:#9e1234;background:linear-gradient(110deg,#2b0714,#090307 55%,#1a0410);box-shadow:0 0 15px #ff003322}
+.package-card:before{background:linear-gradient(115deg,transparent 25%,rgba(255,30,75,.08) 49%,transparent 54%)}
+.package-card:hover{border-color:#ff456d;box-shadow:0 0 24px #ff003c66}
+.package-card:after{background:linear-gradient(90deg,#ff1744,transparent)}
+.package-preview{border-color:#9e1234;background:#18020b}.package-preview img{filter:blur(10px) grayscale(1) brightness(.5);transform:scale(1.2)}
+.package-preview:after{content:'REDACTED';position:absolute;left:6%;right:6%;top:44%;padding:5px 0;text-align:center;background:#050505;color:#fff;font:700 .48rem 'Space Mono',monospace;letter-spacing:.06em;transform:rotate(-8deg)}
+.lock-icon{z-index:2;opacity:.85}.lock-icon span{border-color:#ff1744;box-shadow:0 0 20px #ff003c66}
+.package-progression,.full-label{border-color:#ff1744;color:#ff8ca5;background:#26020e}
+.access-button,.daily-offer__button{background:linear-gradient(110deg,#9e002b,#ff1744,#bb002e);border:1px solid #ff6486;box-shadow:0 0 18px #ff003c77}
+.access-button:hover{box-shadow:0 0 26px #ff003c}
+.daily-offer{background:radial-gradient(ellipse at 50% 0%,#56001b,#19030c 55%,#090307);border-color:#ff1744;box-shadow:0 0 25px #ff003c33}
+.daily-offer h2 em,.daily-offer__tag,.daily-offer__secondary,.daily-offer__price span{color:#ff426b}
+.daily-offer__price{color:#fff}.checkout-note{background:#18030b}.checkout-note b{color:#ff1744}
+.store-footer{border-color:#9e1234;background:#0d0308}.store-footer span:before{color:#ff426b}
+@media(max-width:430px){.hero{min-height:340px}.exposed-masthead{min-height:305px}.exposed-masthead h1{font-size:clamp(3.7rem,17vw,6rem)}}
+@media(prefers-reduced-motion:reduce){.package-card:before,.gallery-update__dot{animation:none}}
