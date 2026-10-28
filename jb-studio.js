@@ -2,6 +2,20 @@ import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
 import {JB_FEED_CONFIG as C} from './jb-feed-config.js?v=20261017-7';
 const $=id=>document.getElementById(id);
 const client=createClient(C.supabaseUrl,C.supabasePublishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+
+// Prevent duplicate submissions and duplicate media in the published feed.
+let uploadInProgress=false;
+async function mediaFingerprint(file){
+ const bytes=await file.arrayBuffer();
+ const digest=await crypto.subtle.digest('SHA-256',bytes);
+ return Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function alreadyPublished(file){
+ const fingerprint=await mediaFingerprint(file);
+ const {data,error}=await client.from(C.tablePosts).select('id,media_path').like('media_path','%/'+fingerprint+'-%').limit(1);
+ if(error)throw error;
+ return {fingerprint,exists:Boolean(data?.length)};
+}
 let verified=false;
 async function refresh(){
  const {data:{user}}=await client.auth.getUser();
@@ -43,23 +57,25 @@ async function loadPreview(){
 }
 $('refreshPreview').addEventListener('click',loadPreview);
 $('uploadForm').addEventListener('submit',async e=>{
- e.preventDefault();if(!verified){$('uploadStatus').textContent='Authorize this device first.';return}
+ e.preventDefault();if(uploadInProgress)return;if(!verified){$('uploadStatus').textContent='Authorize this device first.';return}
  const form=e.currentTarget,file=form.elements.media.files[0],out=$('uploadStatus'),button=$('publish');
  if(!file)return;
  const image=file.type.startsWith('image/');
  if(!['image/jpeg','image/png','image/webp','image/gif','video/mp4','video/webm','video/quicktime'].includes(file.type)||file.size>(image?15:250)*1048576){out.textContent='Unsupported file or too large (15 MB image / 250 MB video).';return}
- button.disabled=true;out.textContent='Uploading…';
+ uploadInProgress=true;button.disabled=true;out.textContent='Checking for duplicates…';
  let path=null;
  try{
+  const {fingerprint,exists}=await alreadyPublished(file);
+  if(exists){out.textContent='This photo or video is already published. No duplicate was created.';return;}
   const {data:{user}}=await client.auth.getUser();
-  path=user.id+'/'+crypto.randomUUID()+'-'+file.name.replace(/[^\\w.-]/g,'_');
+  path=user.id+'/'+fingerprint+'-'+crypto.randomUUID()+'-'+file.name.replace(/[^\\w.-]/g,'_');
   const {error:up}=await client.storage.from(C.storageBucket).upload(path,file,{contentType:file.type});
   if(up)throw up;
   const {error:postError}=await client.from(C.tablePosts).insert({title:form.elements.title.value.trim(),description:form.elements.description.value.trim(),category:form.elements.category.value,media_path:path,media_type:image?'image':'video'});
   if(postError)throw postError;
   form.reset();out.textContent='Published successfully.';await loadPreview();
  }catch(err){out.textContent='Upload failed: '+err.message;if(path)await client.storage.from(C.storageBucket).remove([path])}
- finally{button.disabled=!verified}
+ finally{uploadInProgress=false;button.disabled=!verified}
 });
 client.auth.onAuthStateChange(()=>{setTimeout(refresh,0)});
 refresh();
