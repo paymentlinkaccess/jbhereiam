@@ -68,9 +68,9 @@ $('uploadForm').addEventListener('submit',async e=>{
   const {fingerprint,exists}=await alreadyPublished(file);
   if(exists){out.textContent='This photo or video is already published. No duplicate was created.';return;}
   const {data:{user}}=await client.auth.getUser();
-  path=user.id+'/'+fingerprint+'-'+crypto.randomUUID()+'-'+file.name.replace(/[^\\w.-]/g,'_');
-  const {error:up}=await client.storage.from(C.storageBucket).upload(path,file,{contentType:file.type});
-  if(up)throw up;
+  path=user.id+'/'+fingerprint+'-'+file.name.replace(/[^\w.-]/g,'_');
+  const {error:up}=await client.storage.from(C.storageBucket).upload(path,file,{contentType:file.type,upsert:false});
+  if(up){if(/already exists|duplicate|conflict|resource already/i.test(up.message||'')){out.textContent='This file has already been uploaded. No second post was created.';return;}throw up;}
   const {error:postError}=await client.from(C.tablePosts).insert({title:form.elements.title.value.trim(),description:form.elements.description.value.trim(),category:form.elements.category.value,media_path:path,media_type:image?'image':'video'});
   if(postError)throw postError;
   form.reset();out.textContent='Published successfully.';await loadPreview();
